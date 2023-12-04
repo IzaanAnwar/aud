@@ -110,7 +110,7 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div>
+    <div className="container-room">
       <h1>Room Page</h1>
       <h4>{remoteSocketId ? "Connected" : "No one in room"}</h4>
       {myStream && <button onClick={sendStreams}>Send Stream</button>}
@@ -123,8 +123,10 @@ const RoomPage = () => {
               className="react-player"
               playing
               muted
+              config={{ file: { forceAudio: true } }}
               height="100px"
               width="200px"
+              controls
               url={myStream}
             />
           </div>
@@ -140,6 +142,7 @@ const RoomPage = () => {
               config={{ file: { forceAudio: true } }}
               height="100px"
               width="200px"
+              controls
               url={remoteStream}
             />
           </div>
